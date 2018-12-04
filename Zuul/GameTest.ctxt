@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=GameTest()
+comment0.text=\nDefault\ constructor\ for\ test\ class\ GameTest\n\n
+comment1.target=void\ setUp()
+comment1.text=\nSets\ up\ the\ test\ fixture.\n\nCalled\ before\ every\ test\ case\ method.\n\n
+comment10.target=void\ testGoRoomNoDirection()
+comment11.target=void\ testGoRoomInvalidDirection()
+comment12.target=void\ testGoRoomValid()
+comment13.target=void\ testQuit()
+comment14.target=void\ testQuitError()
+comment2.target=void\ tearDown()
+comment2.text=\nTears\ down\ the\ test\ fixture.\n\nCalled\ after\ every\ test\ case\ method.\n\n
+comment3.target=void\ testDefaultConstructor()
+comment4.target=void\ testPrintWelcome()
+comment5.target=void\ testPrintHelp()
+comment6.target=void\ testProcessCommandNull()
+comment7.target=void\ testProcessCommandHelp()
+comment8.target=void\ testProcessCommandGo()
+comment9.target=void\ testProcessCommandQuit()
+numComments=15

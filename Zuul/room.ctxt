@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=rmdesc
+comment0.target=Room(String)
+comment0.text=\nCreate\ a\ room\ described\ "description".\ Initially,\ it\ has\nno\ exits.\ "description"\ is\ something\ like\ "a\ kitchen"\ or\n"an\ open\ court\ yard".\n@param\ rmdesc\ the\ description\ of\ the\ room\n\n
+comment1.params=direction\ exit
+comment1.target=void\ setExit(String,\ Room)
+comment1.text=\nDefine\ one\ exit\ of\ this\ room.\ \ Every\ direction\ either\ leads\nto\ another\ room\ or\ is\ null\ (no\ exit\ there).\n@param\ direction\ the\ direction\ of\ the\ exit\n@param\ exit\ the\ Room\ that\ lies\ in\ that\ direction\n\n
+comment2.params=direction
+comment2.target=Room\ getExit(String)
+comment2.text=\nReturn\ the\ room\ that\ lies\ in\ the\ indicated\ direction,\ or\ null\ if\ there\nis\ no\ exit\ in\ that\ direction.\n@param\ direction\ the\ direction\ of\ the\ exit\n@return\ the\ Room\ that\ lies\ in\ that\ direction\n\n
+comment3.target=String\ getDescription()
+comment3.text=\nReturn\ the\ description\ of\ the\ room\ (the\ one\ that\ was\ defined\nin\ the\ constructor).\n\n
+numComments=4
