@@ -94,6 +94,9 @@ public class Room
 		}
 		return exits;
 	}
+	//write name of room, its exits
+	public void getLongDescription() {
+		
     
     /**
      * Return the description of the room (the one that was defined

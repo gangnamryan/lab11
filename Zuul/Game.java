@@ -180,18 +180,7 @@ public class Game
 		Room currentRoom = thePlayer.getCurrentRoom();
 		System.out.println("You are " + currentRoom.getDescription());
 		System.out.print("Exits: ");
-		if (currentRoom.getExit("north") != null) {
-			System.out.print("north ");
-		}
-		if (currentRoom.getExit("east") != null) {
-			System.out.print("east ");
-		}
-		if (currentRoom.getExit("south") != null) {
-			System.out.print("south ");
-		}
-		if (currentRoom.getExit("west") != null) {
-			System.out.print("west ");
-		}
+		currentRoom.getExitString();
 		System.out.println();
 	}
     public boolean quit(Command command) 
