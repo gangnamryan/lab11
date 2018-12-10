@@ -10,7 +10,7 @@
  * to the neighboring room, or null if there is no exit in that direction.
  * 
  * @author  Michael Kolling and David J. Barnes
- * @author (YOUR NAME HERE)
+ * @author Alex Thorsrud & Nash
  * @version 1.0 (February 2002)
  */
 
@@ -79,25 +79,25 @@ public class Room
         }
     }
     public String getExitString() {
-		String exits="";
-		if (getExit("north") != null) {
-			exits+="north";
-		}
-		if (getExit("west") != null) {
-			exits+="west";
-		}
-		if (getExit("south") != null) {
-			exits+="south";
-		}
-		if (getExit("east") != null) {
-			exits+="east";
-		}
-		return exits;
-	}
-	//write name of room, its exits
-	public void getLongDescription() {
-		
-    
+        String exits="";
+        if (getExit("north") != null) {
+            exits+="north";
+        }
+        if (getExit("west") != null) {
+            exits+="west";
+        }
+        if (getExit("south") != null) {
+            exits+="south";
+        }
+        if (getExit("east") != null) {
+            exits+="east";
+        }
+        return exits;
+    }
+    //write name of room, its exits
+    public void getLongDescription() {
+        
+    }
     /**
      * Return the description of the room (the one that was defined
      * in the constructor).
@@ -107,3 +107,4 @@ public class Room
         return description;
     }
 }
+

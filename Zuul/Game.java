@@ -177,11 +177,11 @@ public class Game
      * @param command the "quit" command
      */
      public void printDirections() {
-		Room currentRoom = thePlayer.getCurrentRoom();
-		System.out.println("You are " + currentRoom.getDescription());
-		System.out.print("Exits: ");
-		currentRoom.getExitString();
-		System.out.println();
+	Room currentRoom = thePlayer.getCurrentRoom();
+	System.out.println("You are " + currentRoom.getDescription());
+	System.out.print("Exits: ");
+	currentRoom.getExitString();
+	System.out.println();
 	}
     public boolean quit(Command command) 
     {
