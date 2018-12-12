@@ -1,5 +1,5 @@
 /**
- *  This class is the main class of the "World of Zuul" application. 
+ *  This class is the main class of the "World of Commerce" application. 
  *  "World of Zuul" is a very simple, text based adventure game.  Users 
  *  can walk around some scenery. That's all. It should really be extended 
  *  to make it more interesting!
@@ -42,24 +42,19 @@ public class Game
     public void createRoomsAndPlayer()
     {
         // create the rooms
-        Room outside = new Room("outside the main entrance of the university");
-        Room theatre = new Room("in a lecture theatre");
-        Room pub = new Room("in the campus pub");
-        Room lab = new Room("in a computing lab");
-        Room office = new Room("in the computing admin office");
-        Room hub = new Room("in the HUB");
+        Room outdoors_store = new Room("buy shoes for outside");
+        Room theatre_store = new Room("buy wigs");
+        Room pub_store = new Room("a place with drinks");
+        Room lab_store = new Room("in a computing lab");
+        Room office_store = new Room("goodies for the 9-5");
+        Room bigroom = new Room("the big empty area outside the stores");
+        Room outside = new Room("the world outside the mall");
         
         // initialise room exits
-        outside.setExit("north", hub);
-        outside.setExit("east", theatre);
-        outside.setExit("south", lab);
-        outside.setExit("west", pub);
-        theatre.setExit("west", outside);
-        pub.setExit("east", outside);
-        lab.setExit("north", outside);
-        lab.setExit("east", office);
-        office.setExit("west", lab);
-        hub.setExit("south", outside);
+        bigroom.setExit("south", outside);
+        bigroom.setExit("west", outdoors_store);
+        bigroom.setExit("west", outdoors_store);
+        
                                                                                 
         thePlayer = new Player("Zed", outside);  // start game outside
     }
@@ -96,9 +91,9 @@ public class Game
     public void printWelcome()
     {
         System.out.println();
-        System.out.println("Welcome to the World of Zuul!");
-        System.out.println("World of Zuul is a new, incredibly boring adventure game.");
-        System.out.println("Type 'help' if you need help.");
+        System.out.println("Welcome to the World of Commerce");
+        System.out.println("World of Commerce is an old and idiotic adventure game.");
+        System.out.println("Type 'help' if you need help (you probably do).");
         System.out.println();
         printDirections();
     }
@@ -178,10 +173,7 @@ public class Game
      */
      public void printDirections() {
 	Room currentRoom = thePlayer.getCurrentRoom();
-	System.out.println("You are " + currentRoom.getDescription());
-	System.out.print("Exits: ");
-	currentRoom.getExitString();
-	System.out.println();
+	currentRoom.getLongDescription();
 	}
     public boolean quit(Command command) 
     {

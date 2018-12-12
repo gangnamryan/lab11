@@ -1,3 +1,4 @@
+import java.util.HashMap;
 /**
  * Class Room - a room in an adventure game.
  *
@@ -13,15 +14,11 @@
  * @author Alex Thorsrud & Nash
  * @version 1.0 (February 2002)
  */
-
 public class Room 
 {
     private String description; //description of the room
-    private Room northExit; //exit to the north 
-    private Room southExit; //exit to the south
-    private Room eastExit;  //exit to the east
-    private Room westExit;  //exit to the west 
-
+    private HashMap<String, Room> exits
+    
     /**
      * Create a room described "description". Initially, it has
      * no exits. "description" is something like "a kitchen" or
@@ -39,20 +36,20 @@ public class Room
      * @param direction the direction of the exit
      * @param exit the Room that lies in that direction
      */
-    public void setExit(String direction, Room exit) 
-    {
-        if (direction.equals("north")) {
-            northExit = exit;
-        } 
-        else if (direction.equals("east")) {
-            eastExit = exit;
-        } 
-        else if (direction.equals("south")) {
-            southExit = exit;
-        } 
-        else if (direction.equals("west")) {
-            westExit = exit;
-        }
+    public void setExit(Room north, Room east, Room south, Room west, Room up, Room down) {
+		if(north != null){
+			exits.put("north", north);
+		} else if(east != null){
+			exits.put("east", east);
+		} else if(south != null){
+			exits.put("south", south);
+		} else if(west != null){
+			exits.put("west", west);
+		} else if(up != null){
+			exits.put("up", up);
+		} else if(down != null){
+			exits.put("down", down);
+		}
     }
     
     /**
@@ -62,20 +59,7 @@ public class Room
      * @return the Room that lies in that direction
      */
     public Room getExit(String direction) {
-        if (direction.equals("north")) {
-            return northExit;
-        } 
-        else if (direction.equals("east")) {
-            return eastExit;
-        } 
-        else if (direction.equals("south")) {
-            return southExit;
-        } 
-        else if (direction.equals("west")) {
-            return westExit;
-        } 
-        else {
-            return null;
+        return
         }
     }
     public String getExitString() {
@@ -96,7 +80,10 @@ public class Room
     }
     //write name of room, its exits
     public void getLongDescription() {
-        
+        System.out.println("You are " + getDescription());
+	System.out.print("Exits: ");
+	getExitString();
+	System.out.println();
     }
     /**
      * Return the description of the room (the one that was defined
@@ -106,5 +93,12 @@ public class Room
     {
         return description;
     }
+    public void getLongDescription() {
+	Room currentRoom = thePlayer.getCurrentRoom();
+	System.out.println("You are " + currentRoom.getDescription());
+	System.out.print("Exits: ");
+	currentRoom.getExitString();
+	System.out.println();
+	}
 }
 
