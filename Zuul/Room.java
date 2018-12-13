@@ -18,6 +18,7 @@ public class Room
 {
     private String description; //description of the room
     private HashMap<String, Room> exits;
+	private Item item;
 
     /**
      * Create a room described "description". Initially, it has
@@ -51,26 +52,6 @@ public class Room
             exits.put("down", down);
         }
     }
-	public void setExit(String direction, Room exit) 
-    {
-        if (direction.equals("north")) {
-            northExit = exit;
-        } 
-        else if (direction.equals("east")) {
-            eastExit = exit;
-        } 
-        else if (direction.equals("south")) {
-            southExit = exit;
-        } 
-        else if (direction.equals("west")) {
-            westExit = exit;
-        }
-		else if (direction.equals("up")) {
-			upExit = exit;
-		} else if (direction.equals("down")) {
-			downExit = exit;
-		}
-	}
 
     /**
      * Return the room that lies in the indicated direction, or null if there
@@ -101,10 +82,26 @@ public class Room
          * Return the description of the room (the one that was defined
          * in the constructor).
          */
-        public String getDescription()
-        {
-            return description;
-        }
+	public String getDescription()
+	{
+		return description;
+	}
+	
+	public boolean hasItem() {
+		return (item != null);
+	}
+	
+	public void addItem(Item item) {
+		if (!hasItem()) {
+			this.item=item;
+		}
+	}
+	
+	public Item getItem() {
+		if (hasItem()) {
+			return item;
+		}
+	}
 }
 
 

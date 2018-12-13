@@ -57,9 +57,9 @@ public class Game
 		//              		north          	west           	east   			south    	up      down
         bigroom.setExit(		theatre_store,	outdoors_store,	phone_store,	outside,	heaven,	hell);
 		theatre_store.setExit(	null,   		null,           null,        	bigroom, 	heaven, hell);
-		outdoors_store(       	null,    		null,			bigroom,		null,    	heaven, hell);
-		phone_store(          	null,			bigroom,		null,			null,		heaven,	hell);
-		outside(				bigroom,		null,			null,			null,		heaven,	hell);
+		outdoors_store.setExit(	null,    		null,			bigroom,		null,    	heaven, hell);
+		phone_store.setExit(	null,			bigroom,		null,			null,		heaven,	hell);
+		outside.setExit(		bigroom,		null,			null,			null,		heaven,	hell);
 		
 		thePlayer = new Player("Zed", outside);  // start game outside
     }
@@ -194,8 +194,8 @@ public class Game
 		printWelcome();
 		boolean finished=false;
 		while (!finished) {
-			Command command = parser.getCommand();
-			finished = processCommand(command);
+			//Command command = parser.getCommand();
+			//finished = processCommand(command);
 		}
 		System.out.println("later idiot");
 	}
