@@ -88,7 +88,7 @@ public class Player
 	inventory.add(item);
 	if(!(currentBurden()<maxWeight)){
 		inventory.remove(inventory.size() -1);
-		Sytem.out.println("You are overburdened and cannot carry this item.");
+		System.out.println("You are overburdened and cannot carry this item.");
 	}	
     }
 
