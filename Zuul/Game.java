@@ -42,20 +42,26 @@ public class Game
     public void createRoomsAndPlayer()
     {
         // create the rooms
+		//
         Room outdoors_store = new Room("buy shoes for outside");
         Room theatre_store = new Room("buy wigs");
+		Room phone_store = new Room("for phone");
         Room bigroom = new Room("the big empty area outside the stores");
         Room outside = new Room("the world outside the mall");
         Room heaven = new Room("youve lived a good life");
         Room hell = new Room("you will burn");
         
         // initialise room exits
-        bigroom.setExit("south", outside);
-        bigroom.setExit("west", outdoors_store);
-        outdoors_store.setExit("east", bigroom);
-        bigroom.setExit("west", outdoors_store);
-                                                                                
-        thePlayer = new Player("Zed", outside);  // start game outside
+		//  public void setExit(Room north, Room west, Room east, Room south, Room up, Room down) {
+			
+		//              		north          	west           	east   			south    	up      down
+        bigroom.setExit(		theatre_store,	outdoors_store,	phone_store,	outside,	heaven,	hell);
+		theatre_store.setExit(	null,   		null,           null,        	bigroom, 	heaven, hell);
+		outdoors_store(       	null,    		null,			bigroom,		null,    	heaven, hell);
+		phone_store(          	null,			bigroom,		null,			null,		heaven,	hell);
+		outside(				bigroom,		null,			null,			null,		heaven,	hell);
+		
+		thePlayer = new Player("Zed", outside);  // start game outside
     }
     
     /**

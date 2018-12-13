@@ -36,7 +36,7 @@ public class Room
      * @param direction the direction of the exit
      * @param exit the Room that lies in that direction
      */
-    public void setExit(Room north, Room east, Room south, Room west, Room up, Room down) {
+    public void setExit(Room north, Room west, Room east, Room south, Room up, Room down) {
         if(north != null){
             exits.put("north", north);
         } else if(east != null){
@@ -51,6 +51,26 @@ public class Room
             exits.put("down", down);
         }
     }
+	public void setExit(String direction, Room exit) 
+    {
+        if (direction.equals("north")) {
+            northExit = exit;
+        } 
+        else if (direction.equals("east")) {
+            eastExit = exit;
+        } 
+        else if (direction.equals("south")) {
+            southExit = exit;
+        } 
+        else if (direction.equals("west")) {
+            westExit = exit;
+        }
+		else if (direction.equals("up")) {
+			upExit = exit;
+		} else if (direction.equals("down")) {
+			downExit = exit;
+		}
+	}
 
     /**
      * Return the room that lies in the indicated direction, or null if there
