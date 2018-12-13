@@ -27,7 +27,7 @@ public class Player
     {
         this.name = name;
         currentRoom = initRoom;
-	this.maxWeight = maxWeight;
+    this.maxWeight = maxWeight;
     }
 
     /**
@@ -67,29 +67,41 @@ public class Player
 
     public double currentBurden()
     {
-	double currentBurden=0;
-	for(int i=0; i<inventory.size(); i++){
-    		currentBurden+=inventory.get(i).getWeight();
-	} return currentBurden;
+    double currentBurden=0;
+    for(int i=0; i<inventory.size(); i++){
+            currentBurden+=inventory.get(i).getWeight();
+    } return currentBurden;
     }
 
+    public Item matchName(String itemName)
+    {
+        for(int i=0; i<inventory.size(); i++)
+	{
+		if(inventory.get(i).getName().equals(itemName))
+		{
+			return inventory.get(i);
+		}	
+	}return null;
+    }
     public void takeItem(Item item)
     {
-	inventory.add(item);
-	if(!(currentBurden()<maxWeight)){
-		inventory.remove(inventory.size() -1);
-	}	
+    
+    inventory.add(item);
+    if(!(currentBurden()<maxWeight)){
+        inventory.remove(inventory.size() -1);
+    }   
     }
 
     public void dropItem(Item item)
     {
-	for(int i=0; i<inventory.size(); i++)
-	{
-		if(inventory.get(i).equals(item))
-		{
-			currentRoom.addItem(inventory.get(i));
-			inventory.remove(i);
-		}	
-	}
+    for(int i=0; i<inventory.size(); i++)
+    {
+        if(inventory.get(i).equals(item))
+        {
+            currentRoom.addItem(inventory.get(i));
+            inventory.remove(i);
+        }   
     }
+    }
+
 }
