@@ -1,4 +1,4 @@
-import java.util.HashMap;
+import java.util.*;
 /**
  * Class Room - a room in an adventure game.
  *
@@ -17,8 +17,8 @@ import java.util.HashMap;
 public class Room 
 {
     private String description; //description of the room
-    private HashMap<String, Room> exits
-    
+    private HashMap<String, Room> exits;
+
     /**
      * Create a room described "description". Initially, it has
      * no exits. "description" is something like "a kitchen" or
@@ -37,21 +37,21 @@ public class Room
      * @param exit the Room that lies in that direction
      */
     public void setExit(Room north, Room east, Room south, Room west, Room up, Room down) {
-		if(north != null){
-			exits.put("north", north);
-		} else if(east != null){
-			exits.put("east", east);
-		} else if(south != null){
-			exits.put("south", south);
-		} else if(west != null){
-			exits.put("west", west);
-		} else if(up != null){
-			exits.put("up", up);
-		} else if(down != null){
-			exits.put("down", down);
-		}
+        if(north != null){
+            exits.put("north", north);
+        } else if(east != null){
+            exits.put("east", east);
+        } else if(south != null){
+            exits.put("south", south);
+        } else if(west != null){
+            exits.put("west", west);
+        } else if(up != null){
+            exits.put("up", up);
+        } else if(down != null){
+            exits.put("down", down);
+        }
     }
-    
+
     /**
      * Return the room that lies in the indicated direction, or null if there
      * is no exit in that direction.
@@ -59,46 +59,32 @@ public class Room
      * @return the Room that lies in that direction
      */
     public Room getExit(String direction) {
-        return
-        }
+        return exits.get(direction);
     }
+
     public String getExitString() {
-        String exits="";
-        if (getExit("north") != null) {
-            exits+="north";
+        String exitString = "";
+        Set<String> keys = exits.keySet();
+        for(String exit : keys) {
+            exitString+=" " + exit;
         }
-        if (getExit("west") != null) {
-            exits+="west";
-        }
-        if (getExit("south") != null) {
-            exits+="south";
-        }
-        if (getExit("east") != null) {
-            exits+="east";
-        }
-        return exits;
+        return exitString;
     }
-    //write name of room, its exits
-    public void getLongDescription() {
-        System.out.println("You are " + getDescription());
-	System.out.print("Exits: ");
-	getExitString();
-	System.out.println();
-    }
-    /**
-     * Return the description of the room (the one that was defined
-     * in the constructor).
-     */
-    public String getDescription()
-    {
-        return description;
-    }
-    public void getLongDescription() {
-	Room currentRoom = thePlayer.getCurrentRoom();
-	System.out.println("You are " + currentRoom.getDescription());
-	System.out.print("Exits: ");
-	currentRoom.getExitString();
-	System.out.println();
-	}
+        //write name of room, its exits
+        public void getLongDescription() {
+            System.out.println("You are " + getDescription());
+            System.out.print("Exits: ");
+            getExitString();
+            System.out.println();
+        }
+        /**
+         * Return the description of the room (the one that was defined
+         * in the constructor).
+         */
+        public String getDescription()
+        {
+            return description;
+        }
 }
+
 

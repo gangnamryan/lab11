@@ -40,17 +40,7 @@ public class PlayerTest extends junit.framework.TestCase
         office = new Room("in the computing admin office");
         hub = new Room("in the HUB");
         
-        // initialise room exits
-        outside.setExit("north", hub);
-        outside.setExit("east", theatre);
-        outside.setExit("south", lab);
-        outside.setExit("west", pub);
-        theatre.setExit("west", outside);
-        pub.setExit("east", outside);
-        lab.setExit("north", outside);
-        lab.setExit("east", office);
-        office.setExit("west", lab);
-        hub.setExit("south", outside);
+        
                                                                                 
         thePlayer = new Player("Zed", outside);  
     }

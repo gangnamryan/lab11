@@ -44,17 +44,16 @@ public class Game
         // create the rooms
         Room outdoors_store = new Room("buy shoes for outside");
         Room theatre_store = new Room("buy wigs");
-        Room pub_store = new Room("a place with drinks");
-        Room lab_store = new Room("in a computing lab");
-        Room office_store = new Room("goodies for the 9-5");
         Room bigroom = new Room("the big empty area outside the stores");
         Room outside = new Room("the world outside the mall");
+        Room heaven = new Room("youve lived a good life");
+        Room hell = new Room("you will burn");
         
         // initialise room exits
         bigroom.setExit("south", outside);
         bigroom.setExit("west", outdoors_store);
+        outdoors_store.setExit("east", bigroom);
         bigroom.setExit("west", outdoors_store);
-        
                                                                                 
         thePlayer = new Player("Zed", outside);  // start game outside
     }
@@ -185,4 +184,13 @@ public class Game
             return true;  // signal that we want to quit
         }
     }
+    public void main() {
+		printWelcome();
+		boolean finished=false;
+		while (!finished) {
+			Command command = parser.getCommand();
+			finished = processCommand(command);
+		}
+		System.out.println("later idiot");
+	}
 }
