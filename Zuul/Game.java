@@ -60,6 +60,13 @@ public class Game
 		outdoors_store.setExit(	null,    		null,			bigroom,		null,    	heaven, hell);
 		phone_store.setExit(	null,			bigroom,		null,			null,		heaven,	hell);
 		outside.setExit(		bigroom,		null,			null,			null,		heaven,	hell);
+		//public Item(String name, String desc, double weight, String color, boolean rarity)
+		theatre_store.addItem(new Item("theatre bag", "holds your shame", 20, "green", true));
+		oudtoors_store.addItem(new Item("outdoors bag", "holds things from the outdoors store", 15, "blue", true));
+		phone_store.addItem(new Item("phone bag", "this bag holds a phone", 15, "red", true));
+		bigroom.addItem(new Item("big bag", "this bag holds other bags", 0, "magenta", false));
+		heaven.addItem(new Item("happy token", "you have made it to and from heaven", 0, "yellow", false));
+		hell.addItem(new Item("burnt clothes", "you've escaped hell", 0, "black", false));
 		
 		thePlayer = new Player("Zed", outside);  // start game outside
     }

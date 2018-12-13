@@ -54,7 +54,7 @@ public class Item
      * 
      * @return String, item description
      */
-    public String getDescs()
+    public String getDesc()
     {
         return itemDesc;
     }
