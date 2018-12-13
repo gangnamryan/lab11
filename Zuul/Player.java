@@ -85,11 +85,11 @@ public class Player
     }
     public void takeItem(Item item)
     {
-    
-    inventory.add(item);
-    if(!(currentBurden()<maxWeight)){
-        inventory.remove(inventory.size() -1);
-    }   
+	inventory.add(item);
+	if(!(currentBurden()<maxWeight)){
+		inventory.remove(inventory.size() -1);
+		Sytem.out.println("You are overburdened and cannot carry this item.");
+	}	
     }
 
     public void dropItem(Item item)

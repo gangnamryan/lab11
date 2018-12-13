@@ -75,7 +75,12 @@ public class Room
         public void getLongDescription() {
             System.out.println("You are " + getDescription());
             System.out.print("Exits: ");
-            getExitString();
+            System.out.print(getExitString());
+			if (hasItem()) {
+				System.out.print("Items: This room has a " + getItem().getName());
+			} else {
+				System.out.print("Items: This room has no items.");
+			}
             System.out.println();
         }
         /**
@@ -100,6 +105,13 @@ public class Room
 	public Item getItem() {
 		if (hasItem()) {
 			return item;
+		} else { return null; }
+	}
+	public String getItemDisplayString() {
+		if (hasItem()) {
+			return ("Items: This room has a " + getItem().getName() + ". It does: " + getItem().getDesc());
+		} else {
+			return "Items: This room has no items.";
 		}
 	}
 }
