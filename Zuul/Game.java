@@ -20,6 +20,13 @@
 
 public class Game 
 {
+	private static final String NORTH = "north";
+	private static final String WEST = "west";
+	private static final String EAST = "east";
+	private static final String SOUTH = "south";
+	private static final String UP = "up";
+	private static final String DOWN = "down";
+	
     private CommandReader reader;
     private Player thePlayer;
         
@@ -55,20 +62,24 @@ public class Game
 		//  public void setExit(Room north, Room west, Room east, Room south, Room up, Room down) {
 			
 		//              		north          	west           	east   			south    	up      down
-        bigroom.setExit(		theatre_store,	outdoors_store,	phone_store,	outside,	heaven,	hell);
+		bigroom.setExit(		theatre_store,	outdoors_store,	phone_store,	outside,	heaven,	hell);
 		theatre_store.setExit(	null,   		null,           null,        	bigroom, 	heaven, hell);
 		outdoors_store.setExit(	null,    		null,			bigroom,		null,    	heaven, hell);
 		phone_store.setExit(	null,			bigroom,		null,			null,		heaven,	hell);
-		outside.setExit(		bigroom,		null,			null,			null,		heaven,	hell);
+		outside.setExit( 		bigroom, 		null, 			null, 			null, 		heaven,	hell);
+		
 		//public Item(String name, String desc, double weight, String color, boolean rarity)
 		theatre_store.addItem(new Item("theatre bag", "holds your shame", 20, "green", true));
-		oudtoors_store.addItem(new Item("outdoors bag", "holds things from the outdoors store", 15, "blue", true));
+		outdoors_store.addItem(new Item("outdoors bag", "holds things from the outdoors store", 15, "blue", true));
 		phone_store.addItem(new Item("phone bag", "this bag holds a phone", 15, "red", true));
 		bigroom.addItem(new Item("big bag", "this bag holds other bags", 0, "magenta", false));
 		heaven.addItem(new Item("happy token", "you have made it to and from heaven", 0, "yellow", false));
 		hell.addItem(new Item("burnt clothes", "you've escaped hell", 0, "black", false));
 		
-		thePlayer = new Player("Zed", outside);  // start game outside
+		CommandReader parser = new CommandReader();
+		parser.addCommand("take");
+		parser.addCommand("inventory");
+		thePlayer = new Player("Zed", outside, 100);  // start game outside
     }
     
     /**
@@ -85,7 +96,7 @@ public class Game
     public void play() 
     {            
         printWelcome();
-
+		Room currentRoom=thePlayer.getCurrentRoom();
         // Enter the main command loop.  Here we repeatedly read commands and
         // execute them until the game is over.
                 
@@ -93,6 +104,11 @@ public class Game
         while (!finished) {
             Command command = reader.getCommand();
             finished = processCommand(command);
+			
+			if (command.getCommandWord().equals("take")) {
+				thePlayer.takeItem(currentRoom.getItem());
+				currentRoom.removeItem();
+			}
         }
         System.out.println("Thank you for playing.  Good bye.");
     }

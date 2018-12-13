@@ -16,7 +16,7 @@ import java.util.*;
  */
 public class Room 
 {
-    private String description; //description of the room
+	   private String description; //description of the room
     private HashMap<String, Room> exits;
 	private Item item;
 
@@ -29,6 +29,7 @@ public class Room
     public Room(String rmdesc) 
     {
         description = rmdesc;
+		exits = new HashMap<String,Room>();
     }
 
     /**
@@ -40,18 +41,18 @@ public class Room
     public void setExit(Room north, Room west, Room east, Room south, Room up, Room down) {
         if(north != null){
             exits.put("north", north);
-        } else if(east != null){
-            exits.put("east", east);
-        } else if(south != null){
-            exits.put("south", south);
-        } else if(west != null){
-            exits.put("west", west);
-        } else if(up != null){
+        } if(east != null){
+            exits.put("east", west);
+        } if(south != null){
+            exits.put("south", east);
+        } if(west != null){
+            exits.put("west", south);
+        } if(up != null){
             exits.put("up", up);
-        } else if(down != null){
+        } if(down != null){
             exits.put("down", down);
         }
-    }
+	}
 
     /**
      * Return the room that lies in the indicated direction, or null if there
@@ -67,7 +68,7 @@ public class Room
         String exitString = "";
         Set<String> keys = exits.keySet();
         for(String exit : keys) {
-            exitString+=" " + exit;
+            exitString+=exit + " ";
         }
         return exitString;
     }
@@ -99,6 +100,11 @@ public class Room
 	public void addItem(Item item) {
 		if (!hasItem()) {
 			this.item=item;
+		}
+	}
+	public void removeItem() {
+		if (hasItem()) {
+			item=null;
 		}
 	}
 	

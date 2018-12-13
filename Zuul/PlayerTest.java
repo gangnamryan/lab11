@@ -42,7 +42,7 @@ public class PlayerTest extends junit.framework.TestCase
         
         
                                                                                 
-        thePlayer = new Player("Zed", outside);  
+        thePlayer = new Player("Zed", outside, 100);  
     }
 
     /**
