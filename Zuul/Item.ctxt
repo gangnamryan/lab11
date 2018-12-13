@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=Item
+comment0.text=\r\n\ The\ Item\ class\ stores\ information\ about\ items\ that\ the\ player\ can\ pick\ up\r\n\r\n\ @author\ Alex\ Thorsrud\ &\ Nash\r\n\ @version\ 12.12.18\r\n
+comment1.params=name\ desc\ weight
+comment1.target=Item(java.lang.String,\ java.lang.String,\ double)
+comment1.text=\r\n\ Simple\ constructor\ for\ objects\ of\ class\ Item\r\n\ @param\ String\ name,\ String\ desc,\ double\ weight\r\n
+comment2.params=name\ desc\ weight\ color\ rarity
+comment2.target=Item(java.lang.String,\ java.lang.String,\ double,\ java.lang.String,\ boolean)
+comment2.text=\r\n\ Complex\ constructor\ for\ objects\ of\ class\ Item\r\n\ @param\ String\ name,\ String\ desc,\ double\ weight,\ String\ color,\ boolean\ rarity\r\n
+comment3.params=
+comment3.target=java.lang.String\ getName()
+comment3.text=\r\n\ Accessor\ for\ item\ name\r\n\r\n\ @return\ String,\ item\ name\r\n
+comment4.params=
+comment4.target=java.lang.String\ getDescs()
+comment4.text=\r\n\ Accessor\ for\ item\ description\r\n\ \r\n\ @return\ String,\ item\ description\r\n
+comment5.params=
+comment5.target=double\ getWeight()
+comment5.text=\r\n\ Accessor\ for\ item\ weight\r\n\ \r\n\ @return\ Double,\ item\ weight\r\n
+comment6.params=
+comment6.target=java.lang.String\ getColor()
+comment6.text=\r\n\ Accessor\ for\ item\ color\r\n\ \r\n\ @return\ String,\ item\ color\r\n
+comment7.params=
+comment7.target=int\ getRarity()
+comment7.text=\r\n\ Accessor\ for\ item\ rarity\r\n\ \r\n\ @return\ Int,\ item\ rarity\ (if\ item\ initialized\ with\ rarity)\ \r\n
+numComments=8
