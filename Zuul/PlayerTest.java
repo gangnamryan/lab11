@@ -45,7 +45,7 @@ public class PlayerTest extends junit.framework.TestCase
         outside.setExit("north", hub); 
         
                                                                                 
-        thePlayer = new Player("Zed", outside, 100);  
+        thePlayer = new Player("Zed", outside);  
     }
 
     /**

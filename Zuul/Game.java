@@ -93,7 +93,7 @@ public class Game
         heaven.addItem(new Item("happy_token", "you have made it to and from heaven", 0, "yellow", false));
         hell.addItem(new Item("burnt_clothes", "you've escaped hell", 0, "black", false));
 
-        thePlayer = new Player("Zed", outside, 100);  // start game outside
+        thePlayer = new Player("Zed", outside);  // start game outside
     }
 
     /**
