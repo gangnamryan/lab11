@@ -54,8 +54,8 @@ public class RoomTest
         assertEquals("first room", room1.getDescription());
         assertEquals(false, room1.hasItem());
         assertEquals(null, room1.getItem());
-        Item item1 = new Item("item1", "desc1", 10);
-        Item item2 = new Item("item2", "desc2", 10);
+        Item item1 = new Item("item1", "desc1");
+        Item item2 = new Item("item2", "desc2");
         room1.addItem(item1);
         assertEquals(true, room1.hasItem());
         assertEquals(item1, room1.getItem());
@@ -107,7 +107,7 @@ public class RoomTest
         Room room1 = new Room("first room");
         assertEquals("first room", room1.getDescription());
         assertEquals(false, room1.hasItem());
-        Item item1 = new Item("item1", "desc1", 10);
+        Item item1 = new Item("item1", "desc1");
         room1.addItem(item1);
         assertEquals(true, room1.hasItem());
         room1.removeItem();
@@ -119,7 +119,7 @@ public class RoomTest
         Room room1 = new Room("first room");
         assertEquals("first room", room1.getDescription());
         assertEquals(false, room1.hasItem());
-        Item item1 = new Item("item1", "desc1", 10);
+        Item item1 = new Item("item1", "desc1");
         room1.addItem(item1);
         assertEquals(true, room1.hasItem());
         assertEquals(room1.getItemDisplayString(), "Items: This room has a item1. It does: desc1");

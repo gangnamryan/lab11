@@ -26,7 +26,7 @@ public class Player
     {
         this.name = name;
         currentRoom = initRoom;
-		inventory = new ArrayList<Item>();
+        inventory = new ArrayList<Item>();
     }
 
     /**
@@ -79,7 +79,8 @@ public class Player
     {
         if (!currentRoom.hasItem()) {
             System.out.println("there is no item in this room!");
-            return;}
+            return;
+        }
         inventory.add(item);
     }	
 
@@ -99,7 +100,7 @@ public class Player
     }
 
     public String inventoryToString() {
-        String inventoryString="";
+        String inventoryString="In your inventory: ";
         for(Item item : inventory) {
             inventoryString+=item.getName() + " ";
         }

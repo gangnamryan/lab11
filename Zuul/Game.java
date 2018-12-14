@@ -86,14 +86,14 @@ public class Game
         outside.setExit(DOWN, heaven);
 
         //public Item(String name, String desc, double weight, String color, boolean rarity)
-        theatreStore.addItem(new Item("theatre_bag", "holds your shame", 20, "green", true));
-        outdoorsStore.addItem(new Item("outdoors_bag", "holds things from the outdoors store", 15, "blue", true));
-        phoneStore.addItem(new Item("phone_bag", "this bag holds a phone", 15, "red", true));
-        bigRoom.addItem(new Item("big_bag", "this bag holds other bags", 0, "magenta", false));
-        heaven.addItem(new Item("happy_token", "you have made it to and from heaven", 0, "yellow", false));
-        hell.addItem(new Item("burnt_clothes", "you've escaped hell", 0, "black", false));
+        theatreStore.addItem(new Item("theatre_bag", "holds your shame", "green", true));
+        outdoorsStore.addItem(new Item("outdoors_bag", "holds things from the outdoors store", "blue", true));
+        phoneStore.addItem(new Item("phone_bag", "this bag holds a phone", "red", true));
+        bigRoom.addItem(new Item("big_bag", "this bag holds other bags", "magenta", false));
+        heaven.addItem(new Item("happy_token", "you have made it to and from heaven", "yellow", false));
+        hell.addItem(new Item("burnt_clothes", "you've escaped hell", "black", false));
 
-        thePlayer = new Player("Zed", outside, 100);  // start game outside
+        thePlayer = new Player("Zed", outside);  // start game outside
     }
 
     /**

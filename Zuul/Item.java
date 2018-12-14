@@ -9,7 +9,6 @@ public class Item
 {
     private String itemName;
     private String itemDesc;
-    private double itemWeight;
     private String itemColor;
     private boolean genRarity;
     private int itemRarity;
@@ -17,21 +16,19 @@ public class Item
     /**
      * Simple constructor for objects of class Item
      */
-    public Item(String name, String desc, double weight)
+    public Item(String name, String desc)
     {
         itemName = name;
         itemDesc = desc;
-        itemWeight = weight;
     }
     
     /**
      * Complex constructor for objects of class Item
      */
-    public Item(String name, String desc, double weight, String color, boolean rarity)
+    public Item(String name, String desc, String color, boolean rarity)
     {
         itemName = name;
         itemDesc = desc;
-        itemWeight = weight;
         itemColor = color;
         genRarity = rarity;
         if(genRarity){Random rand=new Random(); itemRarity = rand.nextInt(5)+1;}
@@ -55,15 +52,6 @@ public class Item
     public String getDesc()
     {
         return itemDesc;
-    }
-    /**
-     * Accessor for item weight
-     * 
-     * @return Double, item weight
-     */
-    public double getWeight()
-    {
-        return itemWeight;
     }
     /**
      * Accessor for item color
