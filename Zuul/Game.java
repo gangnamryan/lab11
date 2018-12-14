@@ -215,7 +215,7 @@ public class Game
     
     public void printDirections() {
         Room currentRoom = thePlayer.getCurrentRoom();
-        currentRoom.getLongDescription();
+        System.out.println(currentRoom.getLongDescription());
     }
      /** 
      * "Quit" was entered. Check the rest of the command to see

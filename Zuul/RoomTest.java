@@ -53,6 +53,7 @@ public class RoomTest
         Room room1 = new Room("first room");
         assertEquals("first room", room1.getDescription());
         assertEquals(false, room1.hasItem());
+        assertEquals(null, room1.getItem());
         Item item1 = new Item("item1", "desc1", 10);
         Item item2 = new Item("item2", "desc2", 10);
         room1.addItem(item1);
@@ -82,7 +83,7 @@ public class RoomTest
         rooms[0].setExit("south", rooms[4]);
         rooms[0].setExit("up", rooms[5]);
         rooms[0].setExit("down", rooms[6]);
-        assertEquals("east south north west up down ", rooms[0].getExitString());
+        assertEquals("Exits: east south north west up down ", rooms[0].getExitString());
     }
 
     @Test
@@ -90,14 +91,15 @@ public class RoomTest
         Room[] rooms = new Room[10];
         for(int i=0;i<10;i++)
             rooms[i]=new Room("room " + i);
+        assertEquals("You are in room 0\nExits: none.\nItems: This room has no items.", rooms[0].getLongDescription());
         rooms[0].setExit("north", rooms[1]);
         rooms[0].setExit("west", rooms[2]);
         rooms[0].setExit("east", rooms[3]);
         rooms[0].setExit("south", rooms[4]);
         rooms[0].setExit("up", rooms[5]);
         rooms[0].setExit("down", rooms[6]);
-        rooms[0].getLongDescription();
     }
+
 
     @Test
     public void TestRemoveItem()
@@ -111,6 +113,5 @@ public class RoomTest
         room1.removeItem();
         assertEquals(false, room1.hasItem());
     }
-
 }
 

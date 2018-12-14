@@ -54,16 +54,19 @@ public class Room
     }
 
     public String getExitString() {
-        String exitString = "";
+        String exitString = "Exits: ";
         Set<String> keys = exits.keySet();
         for(String exit : keys) {
             exitString+=exit + " ";
+        }
+        if(exitString.equals("Exits: ")) {
+            exitString+="none.";
         }
         return exitString;
     }
     //write name of room, its exits
     public String getLongDescription() {
-        String longString="You are " + getDescription() + "\n" + getExitString() + "\n";
+        String longString="You are in " + getDescription() + "\n" + getExitString() + "\n";
         if (hasItem()) {
             longString+=("Items: This room has a " + getItem().getName());
         } else {
