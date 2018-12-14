@@ -20,6 +20,15 @@
 
 public class Game 
 {
+	
+	private static final String NORTH = "north";
+	private static final String WEST = "west";
+	private static final String EAST = "east";
+	private static final String SOUTH = "south";
+	private static final String UP = "up";
+	private static final String DOWN = "down";
+	
+	
     private CommandReader reader;
     private Player thePlayer;
         
@@ -56,10 +65,18 @@ public class Game
             
         //                      north           west            east            south       up      down
         bigRoom.setExit(        theatreStore,   outdoorsStore,  phoneStore, outside,    heaven, hell);
-        theatreStore.setExit(   null,           null,           null,           bigRoom,    heaven, hell);
-        outdoorsStore.setExit(  null,           null,           bigRoom,        null,       heaven, hell);
-        phoneStore.setExit( null,           bigRoom,        null,           null,       heaven, hell);
-        outside.setExit(        bigRoom,        null,           null,           null,       heaven, hell);
+		bigRoom.setExit(NORTH, theatreStore);
+		bigRoom.setExit(WEST, outdoorsStore);
+		bigRoom.setExit(EAST, phoneStore);
+		bigRoom.setExit(SOUTH, outside);
+		bigRoom.setExit(UP, heaven);
+		bigRoom.setExit(DOWN, hell);
+		theatreStore.setExit(SOUTH,bigRoom);
+        outdoorsStore.setExit(EAST,bigRoom);
+		phoneStore.setExit(WEST, bigRoom);
+		outside.setExit(NORTH, bigroom);
+		
+		
         
         //public Item(String name, String desc, double weight, String color, boolean rarity)
         theatreStore.addItem(new Item("theatre_bag", "holds your shame", 20, "green", true));
@@ -208,14 +225,5 @@ public class Game
         else {
             return true;  // signal that we want to quit
         }
-    }
-    public void main() {
-        printWelcome();
-        boolean finished=false;
-        while (!finished) {
-            //Command command = parser.getCommand();
-            //finished = processCommand(command);
-        }
-        System.out.println("later idiot");
     }
 }
