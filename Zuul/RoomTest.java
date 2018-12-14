@@ -1,5 +1,4 @@
 
-
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
@@ -47,7 +46,7 @@ public class RoomTest
         assertEquals("first room", room1.getDescription());
         assertEquals(false, room1.hasItem());
     }
-    
+
     @Test
     public void TestAddItem()
     {
@@ -62,34 +61,45 @@ public class RoomTest
         room1.addItem(item2);
         assertEquals(item1, room1.getItem());
     }
-	
-	@Test
+
+    @Test
     public void TestSetExit() {
-		Room room1 = new Room("room1");
-		Room room2 = new Room("room2");
-		room1.setExit(room2, null, null, null, null, null);
-		room1.getExit("north");
-		
-	}
-	
-	@Test
+        Room room1 = new Room("room1");
+        Room room2 = new Room("room2");
+        room1.setExit("north", room2);
+        room1.getExit("north");
+
+    }
+
+    @Test
     public void TestGetExitString() {
-		Room[] rooms = new Room[10];
-		for(int i=0;i<10;i++)
-		rooms[i]=new Room("room " + i);
-		rooms[0].setExit(rooms[1], rooms[2], rooms[3], rooms[4], rooms[5], rooms[6]);
-		assertEquals("east south north west up down ", rooms[0].getExitString());
-	}
-	@Test
+        Room[] rooms = new Room[10];
+        for(int i=0;i<10;i++)
+            rooms[i]=new Room("room " + i);
+        rooms[0].setExit("north", rooms[1]);
+        rooms[0].setExit("west", rooms[2]);
+        rooms[0].setExit("east", rooms[3]);
+        rooms[0].setExit("south", rooms[4]);
+        rooms[0].setExit("up", rooms[5]);
+        rooms[0].setExit("down", rooms[6]);
+        assertEquals("east south north west up down ", rooms[0].getExitString());
+    }
+
+    @Test
     public void TestGetLongDescription() {
-		Room[] rooms = new Room[10];
-		for(int i=0;i<10;i++)
-		rooms[i]=new Room("room " + i);
-		rooms[0].setExit(rooms[1], rooms[2], rooms[3], rooms[4], rooms[5], rooms[6]);
-		rooms[0].getLongDescription()
-	}
-	
-	@Test
+        Room[] rooms = new Room[10];
+        for(int i=0;i<10;i++)
+            rooms[i]=new Room("room " + i);
+        rooms[0].setExit("north", rooms[1]);
+        rooms[0].setExit("west", rooms[2]);
+        rooms[0].setExit("east", rooms[3]);
+        rooms[0].setExit("south", rooms[4]);
+        rooms[0].setExit("up", rooms[5]);
+        rooms[0].setExit("down", rooms[6]);
+        rooms[0].getLongDescription();
+    }
+
+    @Test
     public void TestRemoveItem()
     {
         Room room1 = new Room("first room");
@@ -98,9 +108,9 @@ public class RoomTest
         Item item1 = new Item("item1", "desc1", 10);
         room1.addItem(item1);
         assertEquals(true, room1.hasItem());
-        room1.removeItem()
-		assertEquals(false, room1.hasItem());
+        room1.removeItem();
+        assertEquals(false, room1.hasItem());
     }
-		
+
 }
 

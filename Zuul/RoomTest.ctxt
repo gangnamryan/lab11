@@ -20,4 +20,6 @@ comment7.params=
 comment7.target=void\ TestGetExitString()
 comment8.params=
 comment8.target=void\ TestGetLongDescription()
-numComments=9
+comment9.params=
+comment9.target=void\ TestRemoveItem()
+numComments=10
