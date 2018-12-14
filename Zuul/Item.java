@@ -16,7 +16,6 @@ public class Item
     
     /**
      * Simple constructor for objects of class Item
-     * @param String name, String desc, double weight
      */
     public Item(String name, String desc, double weight)
     {
@@ -27,7 +26,6 @@ public class Item
     
     /**
      * Complex constructor for objects of class Item
-     * @param String name, String desc, double weight, String color, boolean rarity
      */
     public Item(String name, String desc, double weight, String color, boolean rarity)
     {

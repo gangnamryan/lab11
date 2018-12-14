@@ -27,7 +27,7 @@ public class Player
     {
         this.name = name;
         currentRoom = initRoom;
-    this.maxWeight = maxWeight;
+        this.maxWeight = maxWeight;
     }
 
     /**
@@ -67,51 +67,53 @@ public class Player
 
     public double currentBurden()
     {
-    double currentBurden=0;
-    for(int i=0; i<inventory.size(); i++){
+        double currentBurden=0;
+        for(int i=0; i<inventory.size(); i++){
             currentBurden+=inventory.get(i).getWeight();
-    } return currentBurden;
+        } return currentBurden;
     }
-//takes a string as input and returns the item associated with that string
+    //takes a string as input and returns the item associated with that string
     public Item matchName(String itemName)
     {
         for(int i=0; i<inventory.size(); i++)
-	{
-		if(inventory.get(i).getName().equals(itemName))
-		{
-			return inventory.get(i);
-		}	
-	}return null;
+        {
+            if(inventory.get(i).getName().equals(itemName))
+            {
+                return inventory.get(i);
+            }	
+        }return null;
     }
+
     public void takeItem(Item item)
     {
-	inventory.add(item);
-	if(!(currentBurden()<maxWeight)){
-		inventory.remove(inventory.size() -1);
-		System.out.println("You are overburdened and cannot carry this item.");
-	}	
+        inventory.add(item);
+        if(!(currentBurden()<maxWeight)){
+            inventory.remove(inventory.size() -1);
+            System.out.println("You are overburdened and cannot carry this item.");
+        }	
     }
 
     public void dropItem(Item item)
     {
-		for(int i=0; i<inventory.size(); i++) {
-		if(!currentRoom.hasItem()) {
-			if(inventory.get(i).equals(item))
-			{
-				currentRoom.addItem(inventory.get(i));
-				inventory.remove(i);
-			}   
-		} else {
-			System.out.println("Error: Room already has an item!");
-		}
-	}
+        for(int i=0; i<inventory.size(); i++) {
+            if(!currentRoom.hasItem()) {
+                if(inventory.get(i).equals(item))
+                {
+                    currentRoom.addItem(inventory.get(i));
+                    inventory.remove(i);
+                }   
+            } else {
+                System.out.println("Error: Room already has an item!");
+            }
+        }
     }
-	public String inventoryToString() {
-		String inventoryString="";
-		for(Item item : inventory) {
-			inventoryString+=item.getName() + " ";
-		}
-		return inventoryString;
-	}
+
+    public String inventoryToString() {
+        String inventoryString="";
+        for(Item item : inventory) {
+            inventoryString+=item.getName() + " ";
+        }
+        return inventoryString;
+    }
 
 }

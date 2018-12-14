@@ -16,9 +16,9 @@ import java.util.*;
  */
 public class Room 
 {
-	   private String description; //description of the room
+    private String description; //description of the room
     private HashMap<String, Room> exits;
-	private Item item;
+    private Item item;
 
     /**
      * Create a room described "description". Initially, it has
@@ -29,18 +29,18 @@ public class Room
     public Room(String rmdesc) 
     {
         description = rmdesc;
-		exits = new HashMap<String,Room>();
+        exits = new HashMap<String,Room>();
     }
 
     /**
      * Define one exit of this room.  Every direction either leads
      * to another room or is null (no exit there).
      * @param direction the direction of the exit
-     * @param exit the Room that lies in that direction
+     * @param room the Room that lies in that direction
      */
     public void setExit(String direction, Room room) {
         exits.put(direction,room);
-	}
+    }
 
     /**
      * Return the room that lies in the indicated direction, or null if there
@@ -49,8 +49,8 @@ public class Room
      * @return the Room that lies in that direction
      */
     public Room getExit(String direction) {
-		return exits.get(direction);
-		
+        return exits.get(direction);
+
     }
 
     public String getExitString() {
@@ -61,52 +61,54 @@ public class Room
         }
         return exitString;
     }
-        //write name of room, its exits
-        public String getLongDescription() {
-			String longString="You are " + getDescription() + "\n" + getExitString() + "\n";
-			if (hasItem()) {
-				longString+=("Items: This room has a " + getItem().getName());
-			} else {
-				longString+=("Items: This room has no items.");
-			}
-			return longString;
+    //write name of room, its exits
+    public String getLongDescription() {
+        String longString="You are " + getDescription() + "\n" + getExitString() + "\n";
+        if (hasItem()) {
+            longString+=("Items: This room has a " + getItem().getName());
+        } else {
+            longString+="Items: This room has no items.";
         }
-        /**
-         * Return the description of the room (the one that was defined
-         * in the constructor).
-         */
-	public String getDescription()
-	{
-		return description;
-	}
-	
-	public boolean hasItem() {
-		return (item != null);
-	}
-	
-	public void addItem(Item item) {
-		if (!hasItem()) {
-			this.item=item;
-		}
-	}
-	public void removeItem() {
-		if (hasItem()) {
-			item=null;
-		}
-	}
-	
-	public Item getItem() {
-		if (hasItem()) {
-			return item;
-		} else { return null; }
-	}
-	public String getItemDisplayString() {
-		if (hasItem()) {
-			return ("Items: This room has a " + getItem().getName() + ". It does: " + getItem().getDesc());
-		} else {
-			return "Items: This room has no items.";
-		}
-	}
-}
+        return longString;
+    }
 
+    /**
+     * Return the description of the room (the one that was defined
+     * in the constructor).
+     */
+    public String getDescription()
+    {
+        return description;
+    }
+
+    public boolean hasItem() {
+        return (item != null);
+    }
+
+    public void addItem(Item theItem) {
+        if (!hasItem()) {
+            this.item=theItem;
+        }
+    }
+
+    public void removeItem() {
+        if (hasItem()) {
+            item=null;
+        }
+    }
+
+    public Item getItem() {
+        if (hasItem()) {
+            return item;
+        } else { return null; }
+    }
+
+    public String getItemDisplayString() {
+        if (hasItem()) {
+            return ("Items: This room has a " + getItem().getName() + ". It does: " + getItem().getDesc());
+        } else {
+            return "Items: This room has no items.";
+        }
+    }
+}
 
