@@ -69,12 +69,12 @@ public class Game
 		outside.setExit( 		bigroom, 		null, 			null, 			null, 		heaven,	hell);
 		
 		//public Item(String name, String desc, double weight, String color, boolean rarity)
-		theatre_store.addItem(new Item("theatre bag", "holds your shame", 20, "green", true));
-		outdoors_store.addItem(new Item("outdoors bag", "holds things from the outdoors store", 15, "blue", true));
-		phone_store.addItem(new Item("phone bag", "this bag holds a phone", 15, "red", true));
-		bigroom.addItem(new Item("big bag", "this bag holds other bags", 0, "magenta", false));
-		heaven.addItem(new Item("happy token", "you have made it to and from heaven", 0, "yellow", false));
-		hell.addItem(new Item("burnt clothes", "you've escaped hell", 0, "black", false));
+		theatre_store.addItem(new Item("theatre_bag", "holds your shame", 20, "green", true));
+		outdoors_store.addItem(new Item("outdoors_bag", "holds things from the outdoors store", 15, "blue", true));
+		phone_store.addItem(new Item("phone_bag", "this bag holds a phone", 15, "red", true));
+		bigroom.addItem(new Item("big_bag", "this bag holds other bags", 0, "magenta", false));
+		heaven.addItem(new Item("happy_token", "you have made it to and from heaven", 0, "yellow", false));
+		hell.addItem(new Item("burnt_clothes", "you've escaped hell", 0, "black", false));
 		
 		CommandReader parser = new CommandReader();
 		parser.addCommand("take");
@@ -104,11 +104,6 @@ public class Game
         while (!finished) {
             Command command = reader.getCommand();
             finished = processCommand(command);
-			
-			if (command.getCommandWord().equals("take")) {
-				thePlayer.takeItem(currentRoom.getItem());
-				currentRoom.removeItem();
-			}
         }
         System.out.println("Thank you for playing.  Good bye.");
     }
@@ -135,18 +130,27 @@ public class Game
     public boolean processCommand(Command command) 
     {
         boolean wantToQuit = false;
-
+Room currentRoom=thePlayer.getCurrentRoom();
         if (command == null) {
             System.out.println("I don't know what you mean ...");
             return false;
         } else {
             String commandWord = command.getCommandWord();
+            String secondWord = command.getSecondWord();
+			
             if (commandWord.equals("help")) {
                 printHelp();
             } else if (commandWord.equals("go")) {
                 goRoom(command);
             } else if (commandWord.equals("quit")) {
                 wantToQuit = quit(command);
+			} else if (commandWord.equals("take")) {
+                thePlayer.takeItem(currentRoom.getItem());
+				currentRoom.removeItem();
+			} else if (commandWord.equals("inventory")) {
+                System.out.println(thePlayer.inventoryToString());
+            } else if (commandWord.equals("drop")) {
+                thePlayer.dropItem(thePlayer.matchName(secondWord));
             }
         }
         
@@ -166,7 +170,7 @@ public class Game
         System.out.println("around at the university.");
         System.out.println();
         System.out.println("Your command words are:");
-        System.out.println("   go quit help");
+        System.out.println(reader.allCommands());
     }
 
     /** 

@@ -65,21 +65,28 @@ public class RoomTest
 	
 	@Test
     public void TestSetExit() {
-	Room[] rooms = new Room[10];
-	for(int i=0;i<10;i++)
-		rooms[i]=new Room("room " + i);
-	rooms[0].setExit(rooms[1],rooms[2],rooms[3],rooms[4],rooms[5],rooms[6]);
-	assertEquals(rooms[1], "north");
-	assertEquals(rooms[2], "west");
+		Room room1 = new Room("room1");
+		Room room2 = new Room("room2");
+		room1.setExit(room2, null, null, null, null, null);
+		room1.getExit("north");
+		
 	}
 	
 	@Test
     public void TestGetExitString() {
-	Room[] rooms = new Room[10];
-	for(int i=0;i<10;i++)
+		Room[] rooms = new Room[10];
+		for(int i=0;i<10;i++)
 		rooms[i]=new Room("room " + i);
-	rooms[0].setExit(rooms[1], rooms[2], rooms[3], rooms[4], rooms[5], rooms[6]);
-	assertEquals("north west east south up down ", rooms[0].getExitString());
-}
+		rooms[0].setExit(rooms[1], rooms[2], rooms[3], rooms[4], rooms[5], rooms[6]);
+		assertEquals("east south north west up down ", rooms[0].getExitString());
+	}
+	@Test
+    public void TestGetLongDescription() {
+		Room[] rooms = new Room[10];
+		for(int i=0;i<10;i++)
+		rooms[i]=new Room("room " + i);
+		rooms[0].setExit(rooms[1], rooms[2], rooms[3], rooms[4], rooms[5], rooms[6]);
+		assertEquals("east south north west up down ", rooms[0].getExitString());
+	}
 }
 

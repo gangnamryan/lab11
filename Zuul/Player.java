@@ -72,7 +72,7 @@ public class Player
             currentBurden+=inventory.get(i).getWeight();
     } return currentBurden;
     }
-
+//takes a string as input and returns the item associated with that string
     public Item matchName(String itemName)
     {
         for(int i=0; i<inventory.size(); i++)
@@ -94,14 +94,24 @@ public class Player
 
     public void dropItem(Item item)
     {
-    for(int i=0; i<inventory.size(); i++)
-    {
-        if(inventory.get(i).equals(item))
-        {
-            currentRoom.addItem(inventory.get(i));
-            inventory.remove(i);
-        }   
+		for(int i=0; i<inventory.size(); i++) {
+		if(!currentRoom.hasItem()) {
+			if(inventory.get(i).equals(item))
+			{
+				currentRoom.addItem(inventory.get(i));
+				inventory.remove(i);
+			}   
+		} else {
+			System.out.println("Error: Room already has an item!");
+		}
+	}
     }
-    }
+	public String inventoryToString() {
+		String inventoryString="";
+		for(Item item : inventory) {
+			inventoryString+=item.getName() + " ";
+		}
+		return inventoryString;
+	}
 
 }

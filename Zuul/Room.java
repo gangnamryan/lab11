@@ -61,7 +61,8 @@ public class Room
      * @return the Room that lies in that direction
      */
     public Room getExit(String direction) {
-        return exits.get(direction);
+		return exits.get(direction);
+		
     }
 
     public String getExitString() {
