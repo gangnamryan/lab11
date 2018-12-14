@@ -70,22 +70,21 @@ public class Game
         bigRoom.setExit(WEST, outdoorsStore);
         bigRoom.setExit(EAST, phoneStore);
         bigRoom.setExit(SOUTH, outside);
-        
+
         theatreStore.setExit(SOUTH,bigRoom);
         outdoorsStore.setExit(EAST,bigRoom);
         phoneStore.setExit(WEST, bigRoom);
         outside.setExit(NORTH, bigRoom);
-		
-		bigRoom.setExit(UPTHANKUWEBCAT, heaven);
-        bigRoom.setExit(DOWN, hell);
-		theatreStore.setExit(UPTHANKUWEBCAT, heaven);
-		theatreStore.setExit(DOWN, heaven);
-		phoneStore.setExit(UPTHANKUWEBCAT, heaven);
-		phoneStore.setExit(DOWN, heaven);
-		outside.setExit(UPTHANKUWEBCAT, heaven);
-		outside.setExit(DOWN, heaven);
 
-        
+        bigRoom.setExit(UPTHANKUWEBCAT, heaven);
+        bigRoom.setExit(DOWN, hell);
+        theatreStore.setExit(UPTHANKUWEBCAT, heaven);
+        theatreStore.setExit(DOWN, heaven);
+        phoneStore.setExit(UPTHANKUWEBCAT, heaven);
+        phoneStore.setExit(DOWN, heaven);
+        outside.setExit(UPTHANKUWEBCAT, heaven);
+        outside.setExit(DOWN, heaven);
+
         //public Item(String name, String desc, double weight, String color, boolean rarity)
         theatreStore.addItem(new Item("theatre_bag", "holds your shame", 20, "green", true));
         outdoorsStore.addItem(new Item("outdoors_bag", "holds things from the outdoors store", 15, "blue", true));
@@ -160,7 +159,9 @@ public class Game
             } else if (commandWord.equals("quit")) {
                 wantToQuit = quit(command);
             } else if (commandWord.equals("take")) {
-                thePlayer.takeItem(currentRoom.getItem());
+                if (currentRoom.hasItem()) {
+                    thePlayer.takeItem(currentRoom.getItem());
+                }
                 currentRoom.removeItem();
             } else if (commandWord.equals("inventory")) {
                 System.out.println(thePlayer.inventoryToString());
@@ -182,7 +183,7 @@ public class Game
     public void printHelp() 
     {
         System.out.println("You are lost. You are alone. You wander");
-        System.out.println("around at the university.");
+        System.out.println("around at the mall :)");
         System.out.println();
         System.out.println("Your command words are:");
         System.out.println(reader.allCommands());
@@ -212,12 +213,12 @@ public class Game
         }
     }
 
-    
     public void printDirections() {
         Room currentRoom = thePlayer.getCurrentRoom();
         System.out.println(currentRoom.getLongDescription());
     }
-     /** 
+
+    /** 
      * "Quit" was entered. Check the rest of the command to see
      * whether we really quit the game. Return true, if this command
      * quits the game, false otherwise.

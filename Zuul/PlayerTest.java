@@ -35,11 +35,14 @@ public class PlayerTest extends junit.framework.TestCase
         // create the rooms
         outside = new Room("outside the main entrance of the university");
         theatre = new Room("in a lecture theatre");
+        outside.setExit("east", theatre); 
         pub = new Room("in the campus pub");
+        outside.setExit("west", pub); 
         lab = new Room("in a computing lab");
         office = new Room("in the computing admin office");
+        outside.setExit("south", lab); 
         hub = new Room("in the HUB");
-        
+        outside.setExit("north", hub); 
         
                                                                                 
         thePlayer = new Player("Zed", outside, 100);  
