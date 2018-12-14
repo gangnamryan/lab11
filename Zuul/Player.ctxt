@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.target=Player
+comment0.text=\r\n\ This\ class\ is\ part\ of\ the\ "World\ of\ Zuul"\ application.\ \r\n\ "World\ of\ Zuul"\ is\ a\ very\ simple,\ text\ based\ adventure\ game.\ \ \r\n\ \r\n\ This\ class\ represents\ a\ player\ of\ the\ Zuul\ game.\ \ It\ keeps\ track\ of\ the\r\n\ player's\ name\ and\ current\ location,\ and\ implements\ methods\ corresponding\r\n\ to\ actions\ that\ the\ player\ can\ take.\r\n\ \r\n\ @author\ \ Michael\ Kolling\ and\ David\ J.\ Barnes\r\n\ @author\ \ Tim\ Wahls\r\n\ @author\ \ Grant\ Braught\r\n\ @version\ 3.0\ (November\ 2006)\r\n
+comment1.params=name\ initRoom\ maxWeight
+comment1.target=Player(java.lang.String,\ Room,\ double)
+comment1.text=\r\n\ Create\ a\ new\ Player\ with\ the\ specified\ name\ and\ initial\ location\r\n\ @param\ name\ the\ name\ of\ the\ player\r\n\ @param\ initRoom\ the\ initial\ location\ of\ the\ player\r\n
+comment2.params=
+comment2.target=java.lang.String\ getName()
+comment2.text=\r\n\ Get\ the\ name\ of\ the\ player\r\n\ @return\ the\ name\ of\ the\ player\ \r\n
+comment3.params=
+comment3.target=Room\ getCurrentRoom()
+comment3.text=\r\n\ Get\ the\ current\ room\ of\ the\ player\r\n\ @return\ the\ current\ room\ of\ the\ player\r\n
+comment4.params=direction
+comment4.target=boolean\ goRoom(java.lang.String)
+comment4.text=\ \r\n\ Try\ to\ go\ to\ one\ direction.\ If\ there\ is\ an\ exit,\ enter\r\n\ the\ new\ room\ and\ return\ true.\ \ If\ there\ is\ no\ exit,\ stay\ in\ the\r\n\ same\ room\ and\ return\ false.\r\n\ @param\ direction\ the\ direction\ to\ go\r\n
+comment5.params=
+comment5.target=double\ currentBurden()
+comment6.params=itemName
+comment6.target=Item\ matchName(java.lang.String)
+comment7.params=item
+comment7.target=void\ takeItem(Item)
+comment8.params=item
+comment8.target=void\ dropItem(Item)
+numComments=9
