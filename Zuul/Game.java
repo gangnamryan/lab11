@@ -25,7 +25,7 @@ public class Game
     private static final String WEST = "west";
     private static final String EAST = "east";
     private static final String SOUTH = "south";
-    private static final String UP = "up";
+    private static final String UPTHANKUWEBCAT = "up";
     private static final String DOWN = "down";
 
     private CommandReader reader;
@@ -67,7 +67,7 @@ public class Game
         bigRoom.setExit(WEST, outdoorsStore);
         bigRoom.setExit(EAST, phoneStore);
         bigRoom.setExit(SOUTH, outside);
-        bigRoom.setExit(UP, heaven);
+        bigRoom.setExit(UPTHANKUWEBCAT, heaven);
         bigRoom.setExit(DOWN, hell);
         theatreStore.setExit(SOUTH,bigRoom);
         outdoorsStore.setExit(EAST,bigRoom);
@@ -203,17 +203,17 @@ public class Game
         }
     }
 
-    /** 
+    
+    public void printDirections() {
+        Room currentRoom = thePlayer.getCurrentRoom();
+        currentRoom.getLongDescription();
+    }
+     /** 
      * "Quit" was entered. Check the rest of the command to see
      * whether we really quit the game. Return true, if this command
      * quits the game, false otherwise.
      * @param command the "quit" command
      */
-    public void printDirections() {
-        Room currentRoom = thePlayer.getCurrentRoom();
-        currentRoom.getLongDescription();
-    }
-
     public boolean quit(Command command) 
     {
         if (command.hasSecondWord()) {

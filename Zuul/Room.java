@@ -62,16 +62,14 @@ public class Room
         return exitString;
     }
         //write name of room, its exits
-        public void getLongDescription() {
-            System.out.println("You are " + getDescription());
-            System.out.print("Exits: ");
-            System.out.print(getExitString());
+        public String getLongDescription() {
+			String longString="You are " + getDescription() + "\n" + getExitString() + "\n";
 			if (hasItem()) {
-				System.out.print("Items: This room has a " + getItem().getName());
+				longString+=("Items: This room has a " + getItem().getName());
 			} else {
-				System.out.print("Items: This room has no items.");
+				longString+=("Items: This room has no items.");
 			}
-            System.out.println();
+			return longString;
         }
         /**
          * Return the description of the room (the one that was defined
