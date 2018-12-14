@@ -17,17 +17,15 @@ public class Player
     private String name;
     private Room currentRoom; // current location of the player
     private ArrayList<Item> inventory; 
-    private double maxWeight;
     /**
      * Create a new Player with the specified name and initial location
      * @param name the name of the player
      * @param initRoom the initial location of the player
      */
-    public Player(String name, Room initRoom, double maxWeight)
+    public Player(String name, Room initRoom)
     {
         this.name = name;
         currentRoom = initRoom;
-        this.maxWeight = maxWeight;
 		inventory = new ArrayList<Item>();
     }
 
@@ -64,14 +62,6 @@ public class Player
             currentRoom = nextRoom;
             return true;
         }
-    }
-
-    public double currentBurden()
-    {
-        double currentBurden=0;
-        for(int i=0; i<inventory.size(); i++){
-            currentBurden+=inventory.get(i).getWeight();
-        } return currentBurden;
     }
     //takes a string as input and returns the item associated with that string
     public Item matchName(String itemName)
