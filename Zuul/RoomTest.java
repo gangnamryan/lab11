@@ -86,7 +86,21 @@ public class RoomTest
 		for(int i=0;i<10;i++)
 		rooms[i]=new Room("room " + i);
 		rooms[0].setExit(rooms[1], rooms[2], rooms[3], rooms[4], rooms[5], rooms[6]);
-		assertEquals("east south north west up down ", rooms[0].getExitString());
+		rooms[0].getLongDescription()
 	}
+	
+	@Test
+    public void TestRemoveItem()
+    {
+        Room room1 = new Room("first room");
+        assertEquals("first room", room1.getDescription());
+        assertEquals(false, room1.hasItem());
+        Item item1 = new Item("item1", "desc1", 10);
+        room1.addItem(item1);
+        assertEquals(true, room1.hasItem());
+        room1.removeItem()
+		assertEquals(false, room1.hasItem());
+    }
+		
 }
 
