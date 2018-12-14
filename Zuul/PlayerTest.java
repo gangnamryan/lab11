@@ -47,6 +47,8 @@ public class PlayerTest extends junit.framework.TestCase
         test = new Item("test", "an item for testing");
         outside.addItem(test);
 
+        
+                                                                                
         thePlayer = new Player("Zed", outside);  
     }
 

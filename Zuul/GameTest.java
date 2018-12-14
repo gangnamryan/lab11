@@ -73,6 +73,27 @@ public class GameTest extends junit.framework.TestCase
         Command command1 = new Command("quit", null);
         assertEquals(true, game1.processCommand(command1));
     }
+	
+	public void testProcessComandTake()
+    {
+        Command command1 = new Command("take", null);
+        assertEquals(false, game1.processCommand(command1));
+    }
+	
+	public void testProcessCommandInventory()
+    {
+        Command command1 = new Command("inventory", null);
+        assertEquals(false, game1.processCommand(command1));
+    }
+	
+	public void testProcessCommandDrop()
+    {
+        Command command1 = new Command("drop", null);
+        assertEquals(false, game1.processCommand(command1));
+    }
+	
+	public void testProcessCommand() {
+	}
 
     public void testGoRoomNoDirection()
     {
@@ -109,7 +130,24 @@ public class GameTest extends junit.framework.TestCase
         Command command1 = new Command("quit", "smoking");
         assertEquals(false, game1.quit(command1));
     }
+
+    public void testa()
+    {
+        Command command1 = new Command("go", "north");
+        Command command2 = new Command("take", null);
+        Command command3 = new Command("help", null);
+        Command command4 = new Command("inventory", null);
+        Command command5 = new Command("drop", null);
+        Command command6 = new Command("quit", null);
+        assertEquals(false, game1.processCommand(command1));
+        assertEquals(false, game1.processCommand(command2));
+        assertEquals(false, game1.processCommand(command3));
+        assertEquals(false, game1.processCommand(command4));
+        assertEquals(false, game1.processCommand(command5));
+        assertEquals(true, game1.processCommand(command6));
+    }
 }
+
 
 
 
