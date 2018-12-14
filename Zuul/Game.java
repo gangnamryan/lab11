@@ -95,8 +95,6 @@ public class Game
         hell.addItem(new Item("burnt_clothes", "you've escaped hell", 0, "black", false));
 
         CommandReader parser = new CommandReader();
-        parser.addCommand("take");
-        parser.addCommand("inventory");
         thePlayer = new Player("Zed", outside, 100);  // start game outside
     }
 
