@@ -123,6 +123,9 @@ public class RoomTest
         room1.addItem(item1);
         assertEquals(true, room1.hasItem());
         assertEquals(room1.getItemDisplayString(), "Items: This room has a item1. It does: desc1");
+        room1.removeItem();
+        assertEquals(false, room1.hasItem());
+        assertEquals(room1.getItemDisplayString(), "Items: This room has no items.");
     }
 }
 
