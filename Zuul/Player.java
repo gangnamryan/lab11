@@ -28,6 +28,7 @@ public class Player
         this.name = name;
         currentRoom = initRoom;
         this.maxWeight = maxWeight;
+		inventory = new ArrayList<Item>();
     }
 
     /**
@@ -86,12 +87,11 @@ public class Player
 
     public void takeItem(Item item)
     {
+        if (!currentRoom.hasItem()) {
+            System.out.println("there is no item in this room!");
+            return;}
         inventory.add(item);
-        if(!(currentBurden()<maxWeight)){
-            inventory.remove(inventory.size() -1);
-            System.out.println("You are overburdened and cannot carry this item.");
-        }	
-    }
+    }	
 
     public void dropItem(Item item)
     {
