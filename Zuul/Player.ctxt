@@ -21,4 +21,6 @@ comment7.params=item
 comment7.target=void\ takeItem(Item)
 comment8.params=item
 comment8.target=void\ dropItem(Item)
-numComments=9
+comment9.params=
+comment9.target=java.lang.String\ inventoryToString()
+numComments=10
