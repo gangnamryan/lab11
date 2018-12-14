@@ -41,6 +41,9 @@ public class Game
         reader.addCommand("go");
         reader.addCommand("quit");
         reader.addCommand("help");
+        reader.addCommand("take");
+        reader.addCommand("inventory");
+        reader.addCommand("drop");
     }
 
     /**
