@@ -113,5 +113,16 @@ public class RoomTest
         room1.removeItem();
         assertEquals(false, room1.hasItem());
     }
+    @Test
+    public void TestGetItemDisplayString()
+    {
+        Room room1 = new Room("first room");
+        assertEquals("first room", room1.getDescription());
+        assertEquals(false, room1.hasItem());
+        Item item1 = new Item("item1", "desc1", 10);
+        room1.addItem(item1);
+        assertEquals(true, room1.hasItem());
+        assertEquals(room1.getItemDisplayString(), "Items: This room has a item1. It does: desc1");
+    }
 }
 
