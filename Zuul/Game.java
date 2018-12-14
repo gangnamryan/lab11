@@ -67,12 +67,20 @@ public class Game
         bigRoom.setExit(WEST, outdoorsStore);
         bigRoom.setExit(EAST, phoneStore);
         bigRoom.setExit(SOUTH, outside);
-        bigRoom.setExit(UPTHANKUWEBCAT, heaven);
-        bigRoom.setExit(DOWN, hell);
+        
         theatreStore.setExit(SOUTH,bigRoom);
         outdoorsStore.setExit(EAST,bigRoom);
         phoneStore.setExit(WEST, bigRoom);
         outside.setExit(NORTH, bigRoom);
+		
+		bigRoom.setExit(UPTHANKUWEBCAT, heaven);
+        bigRoom.setExit(DOWN, hell);
+		theatreStore.setExit(UPTHANKUWEBCAT, heaven);
+		theatreStore.setExit(DOWN, heaven);
+		phoneStore.setExit(UPTHANKUWEBCAT, heaven);
+		phoneStore.setExit(DOWN, heaven);
+		outside.setExit(UPTHANKUWEBCAT, heaven);
+		outside.setExit(DOWN, heaven);
 
         
         //public Item(String name, String desc, double weight, String color, boolean rarity)
